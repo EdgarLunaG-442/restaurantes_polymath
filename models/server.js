@@ -1,5 +1,6 @@
 const express  = require('express')
 const conectarDB = require('../config/dbconfig')
+const cors = require('cors')
 require('dotenv').config()
 const {restaurantesRouter} = require('../routes/restaurante.routes')
 
@@ -20,6 +21,8 @@ class Server
 	{
 		this.app.use(express.json())
 		this.app.use(express.static('public'))
+		this.app.use(cors())
+
 	}
 
 	listen()
